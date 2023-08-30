@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your Haven!</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+    <!-- boxicon links -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="nav container">
+        <a href="/" class="logo"
+          ><box-icon name="home" class="bx bx-home"></box-icon>
+          <h1 id="haven">FY-Haven</h1></a
+        >
+        <input type="checkbox" id="menu" />
+        <label for="menu"> <i class="bx bx-menu" id="menu-icon"></i></label>
+        <ul class="navbar">
+          <li><a href="/sale/">sale</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+        </ul>
+        <a href="/" class="btn">Home</a>
+      </div>
+    </header>
+    <section class="home" id="home">
+      <div class="home-text">
+        <h1>
+          Find Your Next <br />Perfect Place to<br />
+          Live
+        </h1>
+      </div>
+    </section>
+    <!-- About -->
+    <section class="about container" id="about">
+      <div class="about-img">
+        <img
+          src="{%static 'img/Map - Afghanistan and Tajikistan.jpg'%}"
+          alt=""
+        />
+      </div>
+      <div class="about-text">
+        <span>About Us</span>
+        <h2>
+          We Provide The Best <br />Property For Afghanistan and Tajikistan !
+        </h2>
+        <p>
+          Find Your Haven, a real estate website created by Yusof Shokohyan,
+          caters specifically to Afghan and Tajik individuals seeking their
+          ideal home. With a deep understanding of the cultural preferences and
+          unique needs of these communities, Find Your Haven strives to provide
+          a seamless and personalized experience for its users.
+        </p>
+
+        <a href="" class="btn">Learn More</a>
+      </div>
+    </section>
+    <!-- sales -->
+    <section class="sales container" id="sales">
+      <div class="box-sales">
+        <i class="bx bx-user-pin"></i>
+        <h3>Homeownership</h3>
+        <p>
+          Our sales are designed to help you find your ideal property within
+          your budget.
+        </p>
+      </div>
+      <div class="box-sales">
+        <i class="bx bx-desktop"></i>
+        <h3>Sales Tailored for You</h3>
+        <p>
+          Explore our user-centric approach to finding the perfect home at the
+          right price
+        </p>
+      </div>
+      <div class="box-sales">
+        <i class="bx bx-home-alt"></i>
+        <h3>Find Your Perfect Match</h3>
+        <p>
+          Discover our exclusive <br />sales tailored to your <br />preferences
+        </p>
+      </div>
+    </section>
+    <!-- Properties -->
+    <section class="properties container" id="Properties">
+      <div class="heading">
+        <h1>Our Featured Exclusives​</h1>
+        <p>
+          Searching for your ideal home or commercial property in the
+          Afghanistan and Tajikistan shouldn't be a daunting experience. That's
+          why we're here to assist you in finding the perfect property at the
+          right price.
+        </p>
+      </div>
+      <div class="properties-container">
+        <!-- box 1 -->
+        {% for x in properties %}
+        <a class="box" id="box1" href="property/{{x.id}}">
+          <div class="rent">
+            <h3>RENT</h3>
+          </div>
+          <img src="/media/{{ x.image_property }}" alt="" />
+          <!-- <img src="{%static 'img/deal-01.jpg'%}" alt="" /> -->
+          <h3><strong>$</strong>{{x.price}}</h3>
+          <div class="content">
+            <div class="text">
+              <h3>{{x.property_name}}</h3>
+              <p>{{x.location}}</p>
+            </div>
+            <div class="icon">
+              <i class="bx bx-bed"><span>{{x.bathroom}}</span></i>
+              <i class="bx bx-bath"><span>{{x.room}}</span></i>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    <section class="newslatter container">
+      <h2>Have Quesion in mind? <br />Let us help you</h2>
+      <form action="">
+        <input
+          type="email"
+          id="email-box"
+          placeholder="yourEmail@gmail.com"
+          required
+        />
+        <input type="submit" value="send" class="btn" />
+      </form>
+    </section>
+    <section class="footer">
+      <div class="footer-container" class="container">
+        <h2>Yusof Shokohyan</h2>
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <a href="">Agency</a>
+          <a href="">Building</a>
+          <a href="">Rates</a>
+        </div>
+        <div class="footer-box">
+          <h3>Locations</h3>
+          <a href="">Afghanistan</a>
+          <a href="">Tajikistan</a>
+        </div>
+        <div class="footer-box">
+          <h3>Contact</h3>
+          <a href="">+992 550-37-4242</a>
+          <a href="">Yusof.shokohyan4@gmail.com</a>
+          <div class="social">
+            <a href="https://www.facebook.com/yusof0090"
+              ><i class="bx bxl-facebook-circle"></i
+            ></a>
+            <a href="https://www.instagram.com/yusof_0090/"
+              ><i class="bx bxl-instagram-alt"></i
+            ></a>
+            <a href=""><i class="bx bxl-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&#169; Yusof Shokohyan All Right Reserved</p>
+      </div>
+    </section>
+  </body>
+</html>

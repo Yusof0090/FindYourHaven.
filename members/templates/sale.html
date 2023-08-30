@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your Haven!</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="nav container">
+        <a href="/" class="logo"
+          ><box-icon name="home" class="bx bx-home"></box-icon>
+          <h1 id="haven">FY-Haven</h1></a
+        >
+        <input type="checkbox" id="menu" />
+        <label for="menu"> <i class="bx bx-menu" id="menu-icon"></i></label>
+        <ul class="navbar">
+          <li><a href="/sale/">sale</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+        </ul>
+        <a href="/" class="btn">Home</a>
+      </div>
+    </header>
+    <section class="section-contact container">
+      <h1>SALE FORM</h1>
+      <div class="contact-container container">
+        <form
+          action="{% url 'sale' %}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Enter your full name"
+            name="fullname_"
+          />
+          <input
+            type="email"
+            class="input-field"
+            placeholder="youremail@gmail.com"
+            name="email_"
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="enter your property locations"
+            name="Locations"
+          />
+          <input
+            type="number"
+            class="input-field"
+            placeholder="Enter your phone number!"
+            name="phone_"
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="describe your property!"
+            name="discription"
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Enter your property name!"
+            name="property_name"
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Price?"
+            name="price"
+          />
+          <input
+            type="number"
+            class="input-field"
+            placeholder="How many Bathroom it has?"
+            name="Bathroom"
+          />
+          <input
+            type="number"
+            class="input-field"
+            placeholder="How many Room it has?"
+            name="room"
+          />
+          <div class="input-field input-file">
+            <div class="btn btn-sales"><i class="bx bx-upload"></i></div>
+            <p>Browse your house photo</p>
+            <div class="btn2-sales">
+              <input
+                type="file"
+                id="name"
+                name="image_"
+                placeholder="upload your house photos"
+              />
+            </div>
+          </div>
+          <button class="btn btn-contact" type="submit">submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

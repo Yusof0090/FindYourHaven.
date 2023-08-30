@@ -1,0 +1,26 @@
+{% extends "master.html" %} {% load static %} {% block content %}
+<section class="section-about container">
+  <div class="about-container">
+    <div class="content-section">
+      <div class="title">
+        <h1><strong>$</strong>{{property_details.price}}</h1>
+      </div>
+      <div class="content">
+        <h3>{{property_details.location}}</h3>
+        <p>{{property_details.descpription}}</p>
+        <div class="about-btn">
+          <a href=""><i class="bx bx-phone"></i>{{property_details.phone}}</a
+          ><br /><br /><br />
+          <a href="mailto"
+            ><i class="bx bxl-gmail">/ {{property_details.email}}</i></a
+          ><br /><br /><br />
+        </div>
+      </div>
+    </div>
+    <div class="image-section img1">
+      <img src="/media/{{ property_details.image_property }}" alt="" />
+    </div>
+  </div>
+</section>
+
+{% endblock %}

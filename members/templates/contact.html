@@ -1,0 +1,35 @@
+{% extends "master.html" %} {% load static %} {% block content %}
+<section class="section-contact">
+  <h1>CONTACT US</h1>
+  <div class="contact-container container">
+    <form action="{% url 'savecontact' %}" method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        class="input-field"
+        placeholder="your Name"
+        name="fullname"
+      />
+      <input
+        type="email"
+        class="input-field"
+        placeholder="{{fullname}}"
+        name="email"
+      />
+      <input
+        type="text"
+        class="input-field"
+        placeholder="subject"
+        name="subject"
+      />
+      <textarea
+        type="text"
+        class="input-field textarea-field"
+        placeholder="your message!"
+        name="message"
+      ></textarea>
+      <button class="btn btn-contact" type="submit">submit</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
